@@ -1,0 +1,161 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: #333;
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square {
+  position: absolute;
+  bottom: -300px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid #FF4E88;
+  border-radius: 1px;
+  z-index: -1;
+  animation: moveAndTransform 10s linear infinite;
+}
+
+@keyframes moveAndTransform {
+  0% {
+      bottom: -300px;
+      transform: translateX(-50%) rotate(0deg);
+      width: 30px;
+      height: 30px;
+      border-color: #FF4E88;
+      border-radius: 1px;
+  }
+
+  50% {
+      border-radius: 10px;
+  }
+
+  75% {
+      border-color: #FFB22C;
+  }
+
+  100% {
+      bottom: 100%;
+      transform: translateX(-50%) rotate(360deg);
+      width: 200px;
+      height: 200px;
+      border-color: #134B70;
+      border-radius: 100%;
+      opacity: 0;
+  }
+}
+
+/* Specific styles for each square */
+.square1 {
+  left: 10%;
+  animation-delay: 5s;
+}
+
+.square2 {
+  left: 30%;
+  animation-delay: 7s;
+}
+
+.square3 {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.square4 {
+  left: 70%;
+  animation-delay: 10s;
+}
+
+.square5 {
+  left: 90%;
+  animation-delay: 4s;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-box {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px;
+  max-width: 100%;
+  width: 450px;
+}
+
+.progress {
+  background-color: #fc00ff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress-box::before {
+  content: " ";
+  background-color: #fffc00;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.circle {
+  background-color: #333;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fffc00;
+  font-size: 19px;
+  height: 45px;
+  width: 45px;
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: #fd0ff5;
+}
+
+.btn {
+  background-color: #06476f;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 7px 20px;
+  min-width: 150px;
+  margin: 5px;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  background-color: #800000;
+  cursor: not-allowed;
+}
+
